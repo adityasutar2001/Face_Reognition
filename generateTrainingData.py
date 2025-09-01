@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-# HaarCascade face classifier
+##HaarCascade face classifier
 cascade_path = 'cascades/haarcascade_frontalface_default.xml'
 face_cascade = cv2.CascadeClassifier(cascade_path)
 
@@ -30,12 +30,12 @@ while True:
 		num_faces += 1
 
 		(x,y,w,h), found_face = get_face(frame)
-		# resizing found face to new dimensions
+		#resizing new dimensions
 		resized_face = cv2.resize(found_face, new_dimension)
 		# Converting to grayscale again
 		resized_face = cv2.cvtColor(resized_face, cv2.COLOR_BGR2GRAY)	
 
-		# Saving the training data
+		# Save to training data
 		path = 'trainingData/' + str(num_faces) + '.jpg'
 		cv2.imwrite(path, resized_face)
 
